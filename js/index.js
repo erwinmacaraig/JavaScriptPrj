@@ -18,7 +18,7 @@ function startMyTime() {
         m = "0" + m;
     }
     if (s < 10) { 
-        s = "0" + s
+        s = "0" + s;
     }
     document.getElementById("display-time").innerHTML = `${h}:${m}:${s}`;
     t = setTimeout('startMyTime()', 500);
