@@ -19,6 +19,9 @@
 				top: 50%;
 				left: 50%;
 			}
+			input[type="button"]{
+				width: 86px;
+			}
 		</style>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
@@ -46,6 +49,40 @@
 
 				</div>
 			</div>
+			<div class="col-auto mx-auto mt-2">
+				<div class="row">
+					<div class="col-auto">
+						<input type="button" value="1" class="btn btn-primary number" id="number1" onclick="calculator.getInput(1)">
+					</div>
+					<div class="col-auto">
+						<input type="button" value="2" class="btn btn-primary number" id="number2" onclick="calculator.getInput(2)">
+					</div>
+					<div class="col-auto">
+						<input type="button" value="3" class="btn btn-primary number" id="number3" onclick="calculator.getInput(3)">
+					</div>
+					<div class="col-auto">
+						<input type="button" value="4" class="btn btn-primary number" id="number4" onclick="calculator.getInput(4)">
+					</div>
+					<div class="col-auto">
+						<input type="button" value="5" class="btn btn-primary number" id="number5" onclick="calculator.getInput(5)">
+					</div>
+					<div class="col-auto">
+						<input type="button" value="6" class="btn btn-primary number" id="number6" onclick="calculator.getInput(6)">
+					</div>
+					<div class="col-auto">
+						<input type="button" value="7" class="btn btn-primary number" id="number7" onclick="calculator.getInput(7)">
+					</div>
+					<div class="col-auto">
+						<input type="button" value="8" class="btn btn-primary number" id="number8" onclick="calculator.getInput(8)">
+					</div>
+					<div class="col-auto">
+						<input type="button" value="9" class="btn btn-primary number" id="number9" onclick="calculator.getInput(9)">
+					</div>
+					<div class="col-auto">
+						<input type="button" value="0" class="btn btn-primary number" id="number0" onclick="calculator.getInput(0)">
+					</div>
+				</div>
+			</div>
 			<div class="row mt-2">
 				<div class="col-lg-2">
 					<button class="btn btn-primary mdas" onclick="calculator.setCalculatorOperation('+')">+</button>
@@ -54,10 +91,10 @@
 					<button class="btn btn-primary mdas" onclick="calculator.setCalculatorOperation('-')">-</button>
 				</div>
 				<div class="col-lg-2">
-					<button class="btn btn-primary mdas">*</button>
+					<button class="btn btn-primary mdas" onclick="calculator.setCalculatorOperation('*')">*</button>
 				</div>
 				<div class="col-lg-2">
-					<button class="btn btn-primary mdas">/</button>
+					<button class="btn btn-primary mdas" onclick="calculator.setCalculatorOperation('/')">/</button>
 				</div>
 				<div class="col-lg-2">
 					<button class="btn btn-secondary mdas" onclick="calculator.cls()">C</button>

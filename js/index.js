@@ -24,6 +24,3 @@ function startMyTime() {
     t = setTimeout('startMyTime()', 500);
 }
 let calculator = new Calculator();
-
-
-

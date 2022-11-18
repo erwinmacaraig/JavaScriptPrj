@@ -13,24 +13,37 @@ class Calculator {
     return firstnum - secondnum;
   }
 
+  multiply(firstnum, secondnum){
+    return firstnum * secondnum;
+  }
+
+  divide(firstnum, secondnum){
+    return firstnum / secondnum;
+  }
+
   getOperationResults() {
     return this.result;
   }
   
   displayResults() {
-    this.calMem.push(parseInt(this.input));
+    this.calMem.push(parseFloat(this.input));
      this.result = 0;
     for (let i = 0; i < this.calMem.length - 1; i++) { 
       if (this.operations[i]) { 
         switch (this.operations[i]) { 
           case '+':
             this.calMem[i + 1] = this.add(this.calMem[i], this.calMem[i + 1]);
-            
             break;
           case '-':
             this.calMem[i + 1] = this.subtract(this.calMem[i], this.calMem[i + 1]);
             break;
-        }        
+          case '*':
+            this.calMem[i + 1] = this.multiply(this.calMem[i], this.calMem[i +1]);
+            break;
+          case '/':
+          this.calMem[i + 1] = this.divide(this.calMem[i], this.calMem[i +1]);
+          break;
+        }     
       }
      }
     
@@ -41,12 +54,12 @@ class Calculator {
     this.input = '';
   }
 
-  getInput() {
-    this.input = parseInt(document.getElementById('screen').value);
+  getInput(num) {
+    this.input = parseFloat(document.getElementById('screen').value += num);
   }
   
   setCalculatorOperation(op) {
-    this.calMem.push(parseInt(this.input));
+    this.calMem.push(parseFloat(this.input));
     this.operations.push(op);
     document.getElementById('screen').value = '';    
     document.getElementById('screen').focus();
