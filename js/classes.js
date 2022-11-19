@@ -5,7 +5,6 @@ class Calculator {
     this.operations = [];
     this.input = 0;
   }
-  
   add(firstnum, secondnum) {
     return firstnum + secondnum;
   }
@@ -27,46 +26,68 @@ class Calculator {
   }
 
   displayResults() {
+    this.getInput();
+
     this.calMem.push(parseInt(this.input));
     this.result = 0;
     for (let i = 0; i < this.calMem.length - 1; i++) {
       if (this.operations[i]) {
         switch (this.operations[i]) {
-          case '+':
+          case "+":
             this.calMem[i + 1] = this.add(this.calMem[i], this.calMem[i + 1]);
-
             break;
-          case '-':
-            this.calMem[i + 1] = this.subtract(this.calMem[i], this.calMem[i + 1]);
+          case "-":
+            this.calMem[i + 1] = this.subtract(
+              this.calMem[i],
+              this.calMem[i + 1]
+            );
+            break;
+          case "*":
+            this.calMem[i + 1] = this.multiply(
+              this.calMem[i],
+              this.calMem[i + 1]
+            );
+            break;
+          case "/":
+            this.calMem[i + 1] = this.divide(
+              this.calMem[i],
+              this.calMem[i + 1]
+            );
             break;
         }
       }
     }
 
-    document.getElementById('screen').value = this.calMem[this.calMem.length - 1];
+    document.getElementById("screen").value =
+      this.calMem[this.calMem.length - 1];
+    console.log(this.calMem[this.calMem.length - 1]);
     this.result = this.calMem[this.calMem.length - 1];
     this.calMem = [];
     this.operations = [];
-    this.input = '';
+    this.input = "";
   }
 
   getInput() {
-    this.input = parseInt(document.getElementById('screen').value);
+    this.input = parseInt(document.getElementById("screen").value);
   }
 
   setCalculatorOperation(op) {
+    this.getInput();
     this.calMem.push(parseInt(this.input));
     this.operations.push(op);
-    document.getElementById('screen').value = '';
-    document.getElementById('screen').focus();
+    document.getElementById("screen").value = "";
+  }
+
+  digitClicked(no) {
+    console.log(no);
+    document.getElementById("screen").value += no;
   }
 
   cls() {
-    document.getElementById('screen').value = '';
+    document.getElementById("screen").value = "";
     this.calMem = [];
     this.operations = [];
-    this.input = '';
+    this.input = "";
     this.result = 0;
   }
-
 }
