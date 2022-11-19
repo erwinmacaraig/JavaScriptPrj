@@ -91,3 +91,59 @@ class Calculator {
     this.result = 0;
   }
 }
+
+class Clock {
+  constructor({ template }) {
+    this.template = template;
+  }
+
+  run() {
+    let date = new Date();
+
+    let hours = date.getHours();
+    if (hours < 10) hours = "0" + hours;
+
+    let mins = date.getMinutes();
+    if (mins < 10) mins = "0" + mins;
+
+    let secs = date.getSeconds();
+    if (secs < 10) secs = "0" + secs;
+
+    let toggle = document.getElementById("clock-switch");
+    let display = document.getElementById("display-time");
+    if (toggle.checked == false) {
+      if (hours > 12) {
+        hours = hours % 12;
+        let output = this.template
+          .replace("h", hours)
+          .replace("m", mins)
+          .replace("s", secs)
+          .replace("x", "PM");
+        display.innerHTML = output;
+      } else {
+        let output = this.template
+          .replace("h", hours)
+          .replace("m", mins)
+          .replace("s", secs)
+          .replace("x", "AM");
+        display.innerHTML = output;
+      }
+    } else {
+      let output = this.template
+        .replace("h", hours)
+        .replace("m", mins)
+        .replace("s", secs)
+        .replace("x", "");
+      display.innerHTML = output;
+    }
+  }
+
+  stop() {
+    clearInterval(this.timer);
+  }
+
+  start() {
+    this.run();
+    this.timer = setInterval(() => this.run(), 500);
+  }
+}
