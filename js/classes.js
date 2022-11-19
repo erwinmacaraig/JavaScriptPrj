@@ -5,7 +5,6 @@ class Calculator {
     this.operations = [];
     this.input = 0;
   }
-  
   add(firstnum, secondnum) {
     return firstnum + secondnum;
   }
@@ -38,6 +37,13 @@ class Calculator {
             break;
           case '-':
             this.calMem[i + 1] = this.subtract(this.calMem[i], this.calMem[i + 1]);
+            break;
+
+          case '*':
+            this.calMem[i + 1] = this.multiply(this.calMem[i], this.calMem[i + 1]);
+            break;
+          case '/':
+            this.calMem[i + 1] = this.divide(this.calMem[i], this.calMem[i + 1]);
             break;
         }
       }
