@@ -55,7 +55,12 @@ class Calculator {
   }
 
   getInput(num) {
+   if(num){
     this.input = parseFloat(document.getElementById('screen').value += num);
+   }
+   else{
+    this.input = parseFloat(document.getElementById('screen').value);
+   }
   }
   
   setCalculatorOperation(op) {
