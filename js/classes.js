@@ -56,19 +56,24 @@ class Calculator {
 
   getInput(num) {
    if(num){
-    this.input = parseFloat(document.getElementById('screen').value += num);
+    if(num == 0){
+      this.input = parseFloat(document.getElementById('screen').value += String(num));
+    }
+    else{
+      this.input = parseFloat(document.getElementById('screen').value += num);
+    }
    }
    else{
     this.input = parseFloat(document.getElementById('screen').value);
    }
+  
   }
   
   setCalculatorOperation(op) {
-    
     this.calMem.push(parseFloat(this.input));
     this.operations.push(op);
     document.getElementById('screen').value = '';    
-    document.getElementById('screen').focus();
+    // document.getElementById('screen').focus();
   }
 
   cls() { 

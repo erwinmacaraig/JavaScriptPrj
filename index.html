@@ -29,7 +29,7 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
 	</head>
-	<body onload="startMyTime()">
+	<body onload="startMyTime()" onkeydown="keypress(event)">
 		<div class="text-center page-loading-status">
 			<div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
 				<span class="visually-hidden">Loading...</span>
@@ -57,14 +57,13 @@
 					</div>
 					<div class="col-2 mb-5 ms-2">
 						<select id="hourFormat" class="form-select" aria-label="Default select example" onclick="startMyTime()">
-							<option selected>Change Time Format</option>
-							<option value="regular">12 Hour Format</option>
+							<option value="regular" selected>12 Hour Format</option>
 							<option value="military">24 Hour Format</option>
 						  </select>
 					</div>
 				</div>
 				<div class="col-lg-10">
-					<input type="text" name="screen" id="screen" oninput="calculator.getInput()" onkeydown="">
+					<input type="text" name="screen" id="screen" oninput="calculator.getInput()">
 
 				</div>
 			</div>
@@ -98,7 +97,7 @@
 						<input type="button" value="9" class="btn btn-primary number" id="number9" onclick="calculator.getInput(9)">
 					</div>
 					<div class="col-auto my-2">
-						<input type="button" value="0" class="btn btn-primary number" id="number0" onclick="calculator.getInput(0)">
+						<input type="button" value="0" class="btn btn-primary number" id="number0" onclick="calculator.getInput('0')">
 					</div>
 				</div>
 			</div>
@@ -235,8 +234,6 @@
 
 
 		</div>
-
-
 		<script src="./js/classes.js"></script>
 		<script src="./js/index.js"></script>
 		<!-- Bootstrap JS Bundle with Popper -->
