@@ -26,9 +26,14 @@ function startMyTime() {
   if (checkBox.checked == false) {
     if (h > 12) {
       h = h % 12;
+      document.getElementById("display-time").innerHTML = `${h}:${m}:${s} PM`;
+    } else {
+      document.getElementById("display-time").innerHTML = `${h}:${m}:${s} AM`;
     }
+  } else {
+    document.getElementById("display-time").innerHTML = `${h}:${m}:${s}`;
   }
-  document.getElementById("display-time").innerHTML = `${h}:${m}:${s}`;
+
   t = setTimeout("startMyTime()", 500);
 }
 
