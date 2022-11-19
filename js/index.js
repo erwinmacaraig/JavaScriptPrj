@@ -23,4 +23,6 @@ function startMyTime() {
     document.getElementById("display-time").innerHTML = `${h}:${m}:${s}`;
     t = setTimeout('startMyTime()', 500);
 }
+
+let currenthours = new formatHours();
 let calculator = new Calculator();

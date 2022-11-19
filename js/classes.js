@@ -74,3 +74,13 @@ class Calculator {
   }
 
 }
+
+class formatHours{
+  constructor(){
+    this.Hours = 0;
+  }
+
+  format24(){
+    
+  }
+}

@@ -42,7 +42,14 @@
 				</div>
 
 				<div class="col-lg-12">
-					<p id="display-time"></p>
+					<p id="display-time" class="mx-4 display-4"></p>
+					<div class="col-2 mb-5">
+						<select id="hourFormat" class="form-select" aria-label="Default select example">
+							<option selected>Choose hour format</option>
+							<option value="12hr" onclick="currenthours.startMyTime()">12 Hour Format</option>
+							<option value="24h" onclick="currenthours.startMyTime()">24 Hour Format</option>
+						  </select>
+					</div>
 				</div>
 				<div class="col-lg-10">
 					<input type="text" name="screen" id="screen" oninput="calculator.getInput()">
