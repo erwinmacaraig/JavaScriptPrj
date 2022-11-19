@@ -20,9 +20,21 @@ function startMyTime() {
     if (s < 10) { 
         s = "0" + s;
     }
-    document.getElementById("display-time").innerHTML = `${h}:${m}:${s}`;
-    t = setTimeout('startMyTime()', 500);
+    
+
+    let regular = new formatHours(h, m, s);
+    let chosenFormat = document.getElementById('hourFormat').value;
+    if(chosenFormat == "regular"){
+        let regularHrs = regular.format12();
+        let amOrPm = regular.amPm();
+        document.getElementById("display-time").innerHTML = `${regularHrs}:${m}:${s}`;
+        document.getElementById('ampm').innerHTML = `${amOrPm}`;
+        t = setTimeout('startMyTime()', 500);
+    }
+    else{
+        document.getElementById("display-time").innerHTML = `${h}:${m}:${s}`;
+        t = setTimeout('startMyTime()', 500);
+    }
 }
 
-let currenthours = new formatHours();
 let calculator = new Calculator();

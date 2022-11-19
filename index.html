@@ -22,6 +22,9 @@
 			input[type="button"]{
 				width: 86px;
 			}
+			#display-time {
+				display: inline;
+			}
 		</style>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
@@ -42,66 +45,75 @@
 				</div>
 
 				<div class="col-lg-12">
-					<p id="display-time" class="mx-4 display-4"></p>
-					<div class="col-2 mb-5">
-						<select id="hourFormat" class="form-select" aria-label="Default select example">
-							<option selected>Choose hour format</option>
-							<option value="12hr" onclick="currenthours.startMyTime()">12 Hour Format</option>
-							<option value="24h" onclick="currenthours.startMyTime()">24 Hour Format</option>
+					<div class="col-12">
+						<div class="row">
+							<div class="col-2">
+								<p id="display-time" class="ms-2 display-4 pe-3"></p>
+							</div>
+							<div class="col-1 mt-2">
+								<span id="ampm"></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-2 mb-5 ms-2">
+						<select id="hourFormat" class="form-select" aria-label="Default select example" onclick="startMyTime()">
+							<option selected>Change Time Format</option>
+							<option value="regular">12 Hour Format</option>
+							<option value="military">24 Hour Format</option>
 						  </select>
 					</div>
 				</div>
 				<div class="col-lg-10">
-					<input type="text" name="screen" id="screen" oninput="calculator.getInput()">
+					<input type="text" name="screen" id="screen" oninput="calculator.getInput()" onkeydown="">
 
 				</div>
 			</div>
 			<div class="col-auto mx-auto mt-2">
 				<div class="row">
-					<div class="col-auto">
+					<div class="col-auto my-2">
 						<input type="button" value="1" class="btn btn-primary number" id="number1" onclick="calculator.getInput(1)">
 					</div>
-					<div class="col-auto">
+					<div class="col-auto my-2">
 						<input type="button" value="2" class="btn btn-primary number" id="number2" onclick="calculator.getInput(2)">
 					</div>
-					<div class="col-auto">
+					<div class="col-auto my-2">
 						<input type="button" value="3" class="btn btn-primary number" id="number3" onclick="calculator.getInput(3)">
 					</div>
-					<div class="col-auto">
+					<div class="col-auto my-2">
 						<input type="button" value="4" class="btn btn-primary number" id="number4" onclick="calculator.getInput(4)">
 					</div>
-					<div class="col-auto">
+					<div class="col-auto my-2">
 						<input type="button" value="5" class="btn btn-primary number" id="number5" onclick="calculator.getInput(5)">
 					</div>
-					<div class="col-auto">
+					<div class="col-auto my-2">
 						<input type="button" value="6" class="btn btn-primary number" id="number6" onclick="calculator.getInput(6)">
 					</div>
-					<div class="col-auto">
+					<div class="col-auto my-2">
 						<input type="button" value="7" class="btn btn-primary number" id="number7" onclick="calculator.getInput(7)">
 					</div>
-					<div class="col-auto">
+					<div class="col-auto my-2">
 						<input type="button" value="8" class="btn btn-primary number" id="number8" onclick="calculator.getInput(8)">
 					</div>
-					<div class="col-auto">
+					<div class="col-auto my-2">
 						<input type="button" value="9" class="btn btn-primary number" id="number9" onclick="calculator.getInput(9)">
 					</div>
-					<div class="col-auto">
+					<div class="col-auto my-2">
 						<input type="button" value="0" class="btn btn-primary number" id="number0" onclick="calculator.getInput(0)">
 					</div>
 				</div>
 			</div>
 			<div class="row mt-2">
 				<div class="col-lg-2">
-					<button class="btn btn-primary mdas" onclick="calculator.setCalculatorOperation('+')">+</button>
+					<button class="btn btn-primary mdas" onclick="calculator.setCalculatorOperation('+')" accesskey="+">+</button>
 				</div>
 				<div class="col-lg-2">
-					<button class="btn btn-primary mdas" onclick="calculator.setCalculatorOperation('-')">-</button>
+					<button class="btn btn-primary mdas" onclick="calculator.setCalculatorOperation('-')" accesskey="-">-</button>
 				</div>
 				<div class="col-lg-2">
-					<button class="btn btn-primary mdas" onclick="calculator.setCalculatorOperation('*')">*</button>
+					<button class="btn btn-primary mdas" onclick="calculator.setCalculatorOperation('*')" accesskey="*">*</button>
 				</div>
 				<div class="col-lg-2">
-					<button class="btn btn-primary mdas" onclick="calculator.setCalculatorOperation('/')">/</button>
+					<button class="btn btn-primary mdas" onclick="calculator.setCalculatorOperation('/')" accesskey="/">/</button>
 				</div>
 				<div class="col-lg-2">
 					<button class="btn btn-secondary mdas" onclick="calculator.cls()">C</button>
@@ -111,7 +123,7 @@
 			</div>
 			<div class="row mt-2">
 				<div class="col-lg-10">
-					<button class="btn btn-primary mdas" onclick="calculator.displayResults()">=</button>
+					<button class="btn btn-primary mdas" onclick="calculator.displayResults()" accesskey="">=</button>
 				</div>
 			</div>
 

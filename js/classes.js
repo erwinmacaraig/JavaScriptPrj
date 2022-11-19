@@ -64,6 +64,7 @@ class Calculator {
   }
   
   setCalculatorOperation(op) {
+    
     this.calMem.push(parseFloat(this.input));
     this.operations.push(op);
     document.getElementById('screen').value = '';    
@@ -81,11 +82,34 @@ class Calculator {
 }
 
 class formatHours{
-  constructor(){
-    this.Hours = 0;
+  constructor(_hours){
+    this.Hrs = _hours;
+    this.ampm;
   }
 
-  format24(){
-    
+  format12(){
+    if(this.Hrs >= 12){
+      if(this.Hrs == 12){
+        return this.Hrs;
+      }
+      else{
+        return this.Hrs = this.Hrs - 12;
+      }
+    }else{
+      if(this.Hrs == 0){
+        return this.Hrs + 12;
+      }else{
+        return this.Hrs;
+      }
+    }
+    // return this.Hrs - 12;
+  }
+
+  amPm(){
+    if(this.Hrs >= 12){
+      return this.ampm = "P.M";
+    }else{
+      return this.ampm = "A.M";
+    }
   }
 }
