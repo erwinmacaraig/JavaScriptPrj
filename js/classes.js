@@ -8,37 +8,32 @@ class Calculator {
   add(firstnum, secondnum) {
     return firstnum + secondnum;
   }
-
   subtract(firstnum, secondnum) {
     return firstnum - secondnum;
   }
-
   multiply(firstnum, secondnum) {
     return firstnum * secondnum;
   }
-
   divide(firstnum, secondnum) {
     return firstnum / secondnum;
   }
-
   getOperationResults() {
     return this.result;
   }
-
   displayResults() {
     this.calMem.push(parseInt(this.input));
+    document.getElementById('results').innerHTML = document.getElementById('results').innerHTML + ' ' + this.calMem[this.calMem.length - 1]
     this.result = 0;
+
     for (let i = 0; i < this.calMem.length - 1; i++) {
       if (this.operations[i]) {
         switch (this.operations[i]) {
           case '+':
             this.calMem[i + 1] = this.add(this.calMem[i], this.calMem[i + 1]);
-
             break;
           case '-':
             this.calMem[i + 1] = this.subtract(this.calMem[i], this.calMem[i + 1]);
             break;
-
           case '*':
             this.calMem[i + 1] = this.multiply(this.calMem[i], this.calMem[i + 1]);
             break;
@@ -48,25 +43,26 @@ class Calculator {
         }
       }
     }
-
     document.getElementById('screen').value = this.calMem[this.calMem.length - 1];
     this.result = this.calMem[this.calMem.length - 1];
+    document.getElementById('results').innerHTML = document.getElementById('results').innerHTML + ' = ' + this.result
     this.calMem = [];
     this.operations = [];
     this.input = '';
+    setTimeout(() => {
+      document.getElementById('results').innerHTML = ''
+      this.clearScreen()
+    }, 2000);
   }
-
-  getInput() {
-    this.input = parseInt(document.getElementById('screen').value);
+  getInput(e) {
+    this.input = parseInt(e.replace(/\D/g, ''));
   }
-
   setCalculatorOperation(op) {
     this.calMem.push(parseInt(this.input));
     this.operations.push(op);
-    document.getElementById('screen').value = '';
-    document.getElementById('screen').focus();
-  }
 
+    document.getElementById('results').innerHTML = this.calMem + ' ' + this.operations
+  }
   cls() {
     document.getElementById('screen').value = '';
     this.calMem = [];
@@ -74,5 +70,37 @@ class Calculator {
     this.input = '';
     this.result = 0;
   }
+  clearScreen() {
+    document.getElementById('screen').value = '';
+    document.getElementById('screen').focus();
+  }
 
+  bindKey(e) {
+    if (e.target.value !== '') {
+      switch (e.key) {
+        case '+':
+          calculator.setCalculatorOperation('+')
+          calculator.clearScreen()
+          break
+        case '-':
+          calculator.setCalculatorOperation('-')
+          calculator.clearScreen()
+          break
+        case '*':
+          calculator.setCalculatorOperation('*')
+          calculator.clearScreen()
+          break
+        case '/':
+          calculator.setCalculatorOperation('/')
+          calculator.clearScreen()
+          break
+        case 'Enter':
+          calculator.displayResults()
+          break
+        case 'Delete':
+          calculator.clearScreen()
+          break
+      }
+    }
+  }
 }
