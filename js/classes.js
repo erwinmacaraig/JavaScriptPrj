@@ -4,6 +4,8 @@ class Calculator {
     this.calMem = [];
     this.operations = [];
     this.input = 0;
+    this.nums = []
+    this.count = 0
   }
   add(firstnum, secondnum) {
     return firstnum + secondnum;
@@ -22,7 +24,7 @@ class Calculator {
   }
   displayResults() {
     this.calMem.push(parseInt(this.input));
-    document.getElementById('results').innerHTML = document.getElementById('results').innerHTML + ' ' + this.calMem[this.calMem.length - 1]
+    this.showValue(this.input)
     this.result = 0;
 
     for (let i = 0; i < this.calMem.length - 1; i++) {
@@ -45,23 +47,31 @@ class Calculator {
     }
     document.getElementById('screen').value = this.calMem[this.calMem.length - 1];
     this.result = this.calMem[this.calMem.length - 1];
-    document.getElementById('results').innerHTML = document.getElementById('results').innerHTML + ' = ' + this.result
+    this.showValue(`= ${this.result}`)
     this.calMem = [];
     this.operations = [];
     this.input = '';
+    this.nums = []
     setTimeout(() => {
       document.getElementById('results').innerHTML = ''
       this.clearScreen()
-    }, 2000);
+    }, 3000);
   }
   getInput(e) {
     this.input = parseInt(e.replace(/\D/g, ''));
   }
+  getOnclickInput(e) {
+    this.nums.push(e)
+    this.getInput(this.nums.join(''))
+  }
+
   setCalculatorOperation(op) {
+    this.nums = []
     this.calMem.push(parseInt(this.input));
     this.operations.push(op);
-
-    document.getElementById('results').innerHTML = this.calMem + ' ' + this.operations
+    this.clearScreen()
+    this.showValue(this.input)
+    this.showValue(op)
   }
   cls() {
     document.getElementById('screen').value = '';
@@ -69,10 +79,16 @@ class Calculator {
     this.operations = [];
     this.input = '';
     this.result = 0;
+    document.getElementById('results').innerHTML = ''
   }
   clearScreen() {
     document.getElementById('screen').value = '';
     document.getElementById('screen').focus();
+  }
+
+  showValue(value) {
+    console.log(value)
+    document.getElementById('results').appendChild(document.createTextNode(value + ' '))
   }
 
   bindKey(e) {
