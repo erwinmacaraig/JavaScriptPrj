@@ -5,7 +5,7 @@ setTimeout(function () {
     document.getElementById('screen').focus();
 }, 2000);
 
-
+let twelve, t
 function startMyTime() {
     const today = new Date();
     let h = today.getHours();
@@ -46,16 +46,15 @@ function startMy12HrTime() {
     clearTimeout(t)
 }
 
-
 let calculator = new Calculator();
 let numbers = document.getElementsByClassName('numbers')
 for (let i = 0; i < numbers.length; i++) {
     numbers[i].addEventListener('click', () => {
-        document.getElementById('screen').value = numbers[i].value
-        calculator.getInput(numbers[i].value)
-        document.getElementById('screen').focus();
+        calculator.getOnclickInput(numbers[i].value)
+        document.getElementById('screen').value = calculator.nums.join('')
     })
 }
+
 document.getElementById('screen').onkeydown = (e) => calculator.bindKey(e)
 
 document.querySelector('input[role="switch"]').onchange = (e) => {
