@@ -1,173 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Erwin Macaraig's Demo Page</title>
-		<style>
-			input[type="text"] {
-				width: 100%;
-				text-align: right;
-			}
-			button.mdas {
-				width: 100%;
-			}
-			.page-loading-status {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-			}
-		</style>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jhon Brandon Acenas's Output</title>
+	<link rel="stylesheet" href="/styles.css">
+	<style>
+		input[type="text"] {
+			width: 100%;
+			text-align: right;
+		}
+		/* button.mdas {
+			width: 100%;
+		} */
+		.page-loading-status {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+		}
+	</style>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-	</head>
-	<body onload="startMyTime()">
-		<div class="text-center page-loading-status">
-			<div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
-				<span class="visually-hidden">Loading...</span>
+</head>
+<body onload="startMyTime()">
+	<!-- loading transition -->
+	<div class="text-center page-loading-status">
+		<div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
+			<span class="visually-hidden">Loading...</span>
+		</div>
+		<p>Loading...
+		</p>
+	</div>
+
+	<div class="container mt-4">
+		<!-- title and time display -->
+		<div class="row pb-3 justify-content-center text-center">
+			<div class="col-6">
+				<h2>Basic Calculator</h2>
+				<p id="display-time" class="ms-2 me-5 display-4"></p>
+				<span id="ampm"></span>
+				<select id="hourFormat" class="form-select" aria-label="Default select example" onclick="startMyTime()">
+					<option value="regular" selected>12 Hour Format</option>
+					<option value="military">24 Hour Format</option>
+				</select>
 			</div>
-			<p>Loading...
-			</p>
 		</div>
 
-		<div class="container mt-4">
-			<div class="row">
-				<div class="col-lg-12">
-					<h2>Basic Calculator</h2>
-				</div>
-
-				<div class="col-lg-12">
-					<p id="display-time"></p>
-				</div>
-				<div class="col-lg-10">
-					<input type="text" name="screen" id="screen" oninput="calculator.getInput()">
-
-				</div>
-			</div>
-			<div class="col-1">
-				<button class="btn btn-primary numbers">2</button>
-			</div>
-			<div class="row mt-2">
-				<div class="col-lg-10">
-					<button class="btn btn-primary mdas" onclick="calculator.displayResults()">=</button>
-				</div>
+		<!-- calculator starts here -->
+		<div class="calculator-grid">
+			<div class="output">
+				<input type="text" name="screen" id="screen" oninput="calculator.getInput()">
 			</div>
 
-			<div class="row mt-2">
-				<div class="col-lg-12">
-					<h3>Requirements</h3>
-				</div>
-				<div class="col-lg-12 mt-2 mb-3">
-					<div class="list-group">
-						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-							<div class="d-flex w-100 justify-content-between">
-								<h5 class="mb-1">Description</h5>
-								<small>November 14, 2022</small>
-							</div>
-							<p class="mb-1">
-								Seen in this web page a simple calculator HTML mark up with two mathematical function which is Addition and Subtraction.
-							</p>
-							<p class="mb-1">
-								Usage: Enter a number and press either the + or - button to perform the desired computation and then press = to obtain the results. To perform another calculation, press the C button to clear memory.
-							</p>
-							<p class="mb-1">
-								Tech notes: There are two scripts classes.js and index.js. The calculator script is written in a JavaScript class in the filename classes.js and instantiated in index.js. There are two methods available for mathematical operations in the Calculator class namely
-								<ul>
-									<li>add()</li>
-									<li>subtract()</li>
-								</ul>
+			<button type="button" value="1" class="btn number" id="number1" onclick="calculator.getInput(1)">1</button>
 
-								You have also the constructor method and other helper methods:
-								<ul>
-									<li>constructor()</li>
-									<li>getOperationResults()</li>
-									<li>displayResults()</li>
-									<li>getInput()</li>
-									<li>setCalculatorOperation()</li>
-									<li>cls()</li>
-								</ul>
-								Lastly, the Calculator class has the ff: attributes:
-								<ul>
-									<li>result</li>
-									<li>calMem</li>
-									<li>operations</li>
-									<li>input</li>
-								</ul>
-							</p>
+			<button type="button" value="2" class="btn number" id="number2" onclick="calculator.getInput(2)">2</button>
 
+			<button type="button" value="3" class="btn number" id="number3" onclick="calculator.getInput(3)">3</button>
 
-						</a>
-						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-							<div class="d-flex w-100 justify-content-between">
-								<h5 class="mb-1">Requirement 1</h5>
-								<small class="text-muted">November 14, 2022</small>
-							</div>
-							<p class="mb-1">Clone the repository (Repo) in your local machine. Create another branch with this format:
-								<i>your_last_name-your_firtname</i>_develop</p>
-						</a>
+			<button class="btn mdas" onclick="calculator.setCalculatorOperation('+')" accesskey="+">+</button>
 
-						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-							<div class="d-flex w-100 justify-content-between">
-								<h5 class="mb-1">Requirement 2</h5>
-								<small class="text-muted">November 14, 2022</small>
-							</div>
-							<p class="mb-1">
-								After cloning, create two additional methods for the Calculator class for the remaining two math operations. That will be for Multiplication and Division.
-							</p>
-						</a>
-						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-							<div class="d-flex w-100 justify-content-between">
-								<h5 class="mb-1">Requirement 3</h5>
-								<small class="text-muted">November 14, 2022</small>
-							</div>
-							<p class="mb-1">
-								Modify the UI and create 0 up 9 button keys which when pressed will be the input for the desired math operation. The input should be displayed in the text field (the calculator screen)
-							</p>
+			<button type="button" value="4" class="btn number" id="number4" onclick="calculator.getInput(4)">4</button>
 
-						</a>
-						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-							<div class="d-flex w-100 justify-content-between">
-								<h5 class="mb-1">Requirement 4</h5>
-								<small class="text-muted">November 14, 2022</small>
-							</div>
-							<p class="mb-1">
-								Bind the  +, -, *, /, c or C and = or "Enter" keys to the appropriate operation. &lt;Pressing Enter should give your the results&gt;. Example when button "5", "+", "6", "=" were pressed in that particular order, the result should be 11 (shown in the text field). And pressing "C" or "c" will clear the memory.
-							</p>
+			<button type="button" value="5" class="btn number" id="number5" onclick="calculator.getInput(5)">5</button>
 
-						</a>
-						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-							<div class="d-flex w-100 justify-content-between">
-								<h5 class="mb-1">Requriement 5</h5>
-								<small class="text-muted">November 14, 2022</small>
-							</div>
-							<p class="mb-1">
-								Create a custom Clock class that will implement a method (or methods) to format the clock into 12-hr format and 24-hr format.  You will need to provide the additional UI for toggling the clock format.
-							</p>
-						</a>
+			<button type="button" value="6" class="btn number" id="number6" onclick="calculator.getInput(6)">6</button>
 
-						<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-							<div class="d-flex w-100 justify-content-between">
-								<h5 class="mb-1">Requriement 6</h5>
-								<small class="text-muted">November 14, 2022</small>
-							</div>
-							<p class="mb-1">
-								Push your
-								<i>your_last_name-your_firtname</i>_develop branch and create a pull request to the useracceptance branch.
-							</p>
-						</a>
-					</div>
-				</div>
-			</div>
+			<button class="btn mdas" onclick="calculator.setCalculatorOperation('-')" accesskey="-">-</button>
 
+			<button type="button" value="7" class="btn number" id="number7" onclick="calculator.getInput(7)">7</button>
+
+			<button type="button" value="8" class="btn number" id="number8" onclick="calculator.getInput(8)">8</button>
+
+			<button type="button" value="9" class="btn number" id="number9" onclick="calculator.getInput(9)">9</button>
+
+			<button class="btn mdas" onclick="calculator.setCalculatorOperation('/')" accesskey="/">/</button>
+
+			<button class="btn mdas" onclick="calculator.cls()">C</button>
+
+			<button type="button" value="0" class="btn number" id="number0" onclick="calculator.getInput('0')">0</button>
+
+			<button class="btn mdas" onclick="calculator.displayResults()" accesskey="">=</button>
+
+			<button class="btn mdas" onclick="calculator.setCalculatorOperation('*')" accesskey="*">*</button>
 
 		</div>
 
-		<div class="row mt-2">
+		<!-- description starts here -->
+		<div class="row">
 			<div class="col-lg-12">
 				<h3>Requirements</h3>
 			</div>
-			<div class="col-lg-12 mt-2 mb-3">
+			<div class="col-lg-12 mt-1 mb-3">
 				<div class="list-group">
 					<a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
 						<div class="d-flex w-100 justify-content-between">
@@ -175,18 +100,13 @@
 							<small>November 14, 2022</small>
 						</div>
 						<p class="mb-1">
-							Seen in this web page a simple calculator HTML mark up with two mathematical function which
-							is Addition and Subtraction.
+							Seen in this web page a simple calculator HTML mark up with two mathematical function which is Addition and Subtraction.
 						</p>
 						<p class="mb-1">
-							Usage: Enter a number and press either the + or - button to perform the desired computation
-							and then press = to obtain the results. To perform another calculation, press the C button
-							to clear memory.
+							Usage: Enter a number and press either the + or - button to perform the desired computation and then press = to obtain the results. To perform another calculation, press the C button to clear memory.
 						</p>
 						<p class="mb-1">
-							Tech notes: There are two scripts classes.js and index.js. The calculator script is written
-							in a JavaScript class in the filename classes.js and instantiated in index.js. There are two
-							methods available for mathematical operations in the Calculator class namely
+							Tech notes: There are two scripts classes.js and index.js. The calculator script is written in a JavaScript class in the filename classes.js and instantiated in index.js. There are two methods available for mathematical operations in the Calculator class namely
 							<ul>
 								<li>add()</li>
 								<li>subtract()</li>
@@ -217,10 +137,8 @@
 							<h5 class="mb-1">Requirement 1</h5>
 							<small class="text-muted">November 14, 2022</small>
 						</div>
-						<p class="mb-1">Clone the repository in your local machine. Create another branch with this
-							format
-							<i>your_last_name-your_firtname</i>_develop
-						</p>
+						<p class="mb-1">Clone the repository (Repo) in your local machine. Create another branch with this format:
+							<i>your_last_name-your_firtname</i>_develop</p>
 					</a>
 
 					<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -229,8 +147,7 @@
 							<small class="text-muted">November 14, 2022</small>
 						</div>
 						<p class="mb-1">
-							After cloning, create two additional methods for the Calculator class for the remaining two
-							math operations. That will be for Multiplication and Division.
+							After cloning, create two additional methods for the Calculator class for the remaining two math operations. That will be for Multiplication and Division.
 						</p>
 					</a>
 					<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -239,22 +156,17 @@
 							<small class="text-muted">November 14, 2022</small>
 						</div>
 						<p class="mb-1">
-							Modify the UI and create 0 up 9 button keys which when pressed will be the input for the
-							desired math operation. The input should be displayed in the text field (the calculator
-							screen)
+							Modify the UI and create 0 up 9 button keys which when pressed will be the input for the desired math operation. The input should be displayed in the text field (the calculator screen)
 						</p>
 
 					</a>
 					<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
 						<div class="d-flex w-100 justify-content-between">
-							<h5 class="mb-1">Requriement 4</h5>
+							<h5 class="mb-1">Requirement 4</h5>
 							<small class="text-muted">November 14, 2022</small>
 						</div>
 						<p class="mb-1">
-							Bind the +, -, *, /, c or C and = or "Enter" keys to the appropriate operation. &lt;Pressing
-							Enter should give your the results&gt;. Example when button "5", "+", "6", "=" were pressed
-							in that particular order, the result should be 11 (shown in the text field). And pressing
-							"C" or "c" will clear the memory.
+							Bind the  +, -, *, /, c or C and = or "Enter" keys to the appropriate operation. &lt;Pressing Enter should give your the results&gt;. Example when button "5", "+", "6", "=" were pressed in that particular order, the result should be 11 (shown in the text field). And pressing "C" or "c" will clear the memory.
 						</p>
 
 					</a>
@@ -264,9 +176,7 @@
 							<small class="text-muted">November 14, 2022</small>
 						</div>
 						<p class="mb-1">
-							Create a custom Clock class that will implement a method (or methods) to format the clock
-							into 12-hr format and 24-hr format. You will need to provide the additional UI for toggling
-							the clock format.
+							Create a custom Clock class that will implement a method (or methods) to format the clock into 12-hr format and 24-hr format.  You will need to provide the additional UI for toggling the clock format.
 						</p>
 					</a>
 
@@ -277,25 +187,18 @@
 						</div>
 						<p class="mb-1">
 							Push your
-							<i>your_last_name-your_firtname</i>_develop branch and create a pull request to the
-							useracceptance branch.
+							<i>your_last_name-your_firtname</i>_develop branch and create a pull request to the useracceptance branch.
 						</p>
 					</a>
 				</div>
 			</div>
-
-
 		</div>
 
-
 	</div>
-
 
 	<script src="./js/classes.js"></script>
 	<script src="./js/index.js"></script>
 	<!-- Bootstrap JS Bundle with Popper -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>
