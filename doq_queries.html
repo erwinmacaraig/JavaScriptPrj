@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Dog FAQs</title>
+		<!-- Bootstrap CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+		<style>
+			div.ajax > img {
+				display: flex;
+				align-items: center;
+
+				max-height: 300px;
+				max-width: 275px;
+			}
+			div.ajax {
+				margin: 20px;
+				padding: 15px;
+				height: 325px;
+				width: 275px;
+			}
+			.page-loading-status {
+				margin-top: 20px;
+			}
+		</style>
+		<script src="./js/ajax.js"></script>
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-6">
+					<h1>Your Dog Queries Answered</h1>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-6">
+					<h3>Why do dogs have wet noses?</h3>
+					<p>
+						A dogs’ ability to detect scents is up to 10,000 time more sensitive than the human nose. As an example, they can sniff out one rotten apple among 2 MILLION barrels of apples. A wet nose enhances the ability to trap olfactory chemicals in the secretions produced in the glands of the nose.
+					</p>
+
+
+					<div id="dog-img-container-01" class="ajax" onclick="fetchMyDog('dog-img-container-01');">
+						<div class="text-center page-loading-status">
+							<div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
+								<span class="visually-hidden">Loading...</span>
+							</div>
+							<p>Loading...
+							</p>
+						</div>
+						<script>
+							fetchMyDog('dog-img-container-01');
+						</script>
+
+					</div>
+					<p>
+						Some dogs lick their nose, contributing to the “wet nose”  look and enhancing the process of scent detection as those chemicals are processed in olfactory centers in the roof of their mouths. Dogs also produce more secretions from their nose as a way of regulating body temperature.Sweat glands are found in the feet and nose and as such, a wet nose helps keep them cool. Should I worry if my dog has a dry nose? Nope! If the dog is otherwise happy and healthy, without dried discharge around the nostrils, a dry nose is not an indicator of illness.
+					</p>
+				</div>
+
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-6">
+					<h3>Why is my dog panting?</h3>
+					<div id="dog-img-container-02" class="ajax" onclick="fetchMyDog('dog-img-container-02');">
+						<div class="text-center page-loading-status">
+							<div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
+								<span class="visually-hidden">Loading...</span>
+							</div>
+							<p>Loading...
+							</p>
+						</div>
+
+						<script>
+							fetchMyDog('dog-img-container-02');
+						</script>
+					</div>
+					<p>
+						We are back to the unique distribution of sweat glands in your pup and his ability to cool down. Because they don’t sweat like humans, excessive heat is lost as air moves through your dog’s airways. While normal respiration in dogs can be up to 30-40 breaths per minute, a panting dog can exchange air up to 300-400 times per minute.Some causes of abnormal panting can include stress, pain, endocrine diseases, heatstroke, and heart or respiratory disorders such as tracheal collapse. If your dog doesn’t need to chill out in a warm environment, bring abnormal panting to your veterinarian’s attention.
+					</p>
+
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-6">
+					<h3>Why Do Dogs Sniff Each Other’s Butts?</h3>
+					<p>
+						Anal glands, which secrete a foul-smelling liquid, are used for scent marking and identification. Because of their complex olfactory system which includes a component called Jacobsen’s organ in addition to their nose, they can also process scents that have no detectable odor like pheromones.
+					</p>
+					<p>
+						A butt sniff is the equivalent of a human handshake enabling dogs to recognize each other as individuals and identify sex, age, variabilities in health and social order.
+					</p>
+					<div id="dog-img-container-03" class="ajax" onclick="fetchMyDog('dog-img-container-03');">
+						<div class="text-center page-loading-status">
+							<div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
+								<span class="visually-hidden">Loading...</span>
+							</div>
+							<p>Loading...
+							</p>
+						</div>
+						<script>
+							fetchMyDog('dog-img-container-03');
+						</script>
+					</div>
+
+					<p>
+						Dogs also communicate using body language and physical cues; raised, waving tails indicate happiness and tucked tails appear when fearful. A wagging tail can help to spread those chemical scents when greeting other pups. Tails are useful for balance and movement, such as the rudder-like tail of the swimming retriever or the whip-like tail of the sight-hound which helps them change direction in the blink of an eye.
+					</p>
+
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-6">
+					<h3>Why do dogs have wet noses?</h3>
+					<div id="dog-img-container-04" class="ajax" onclick="fetchMyDog('dog-img-container-04');">
+						<div class="text-center page-loading-status">
+							<div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
+								<span class="visually-hidden">Loading...</span>
+							</div>
+							<p>Loading...
+							</p>
+						</div>
+					</div>
+					<script>
+						fetchMyDog('dog-img-container-04');
+					</script>
+
+				</div>
+			</div>
+
+		</div>
+
+
+		<!-- Bootstrap JS Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+	</body>
+</html>
