@@ -13,6 +13,14 @@ class Calculator {
     return firstnum - secondnum;
   }
 
+  multiply(firstnum, secondnum) {
+    return firstnum * secondnum;
+  }
+
+  divide(firstnum, secondnum) {
+    return firstnum / secondnum;
+  }
+
   getOperationResults() {
     return this.result;
   }
@@ -25,10 +33,18 @@ class Calculator {
         switch (this.operations[i]) { 
           case '+':
             this.calMem[i + 1] = this.add(this.calMem[i], this.calMem[i + 1]);
-            
             break;
+
           case '-':
             this.calMem[i + 1] = this.subtract(this.calMem[i], this.calMem[i + 1]);
+            break;
+
+          case '*':
+            this.calMem[i + 1] = this.multiply(this.calMem[i], this.calMem[i + 1]);
+            break;
+
+          case '/':
+            this.calMem[i + 1] = this.divide(this.calMem[i], this.calMem[i + 1]);
             break;
         }        
       }
