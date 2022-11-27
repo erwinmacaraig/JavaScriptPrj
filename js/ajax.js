@@ -143,7 +143,8 @@ function getAllCountries() {
                 let option = document.createElement("option");
                 option.setAttribute('value', countryObj['name']);
                 option.textContent = countryObj['name'];
-                selectEl.appendChild(option);                
+                selectEl.appendChild(option);
+                
             }
         }
     }
