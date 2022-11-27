@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Erwin Macaraig's Demo Page</title>
+		<title>Basic Calculator</title>
 		<style>
 			input[type="text"] {
 				width: 100%;
@@ -22,7 +22,7 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
 	</head>
-	<body onload="startMyTime()">
+	<body onload="startMyTime()" onkeydown="calculator.keyPress(event)">
 		<div class="text-center page-loading-status">
 			<div class="spinner-border" role="status" style="width: 3rem; height: 3rem;">
 				<span class="visually-hidden">Loading...</span>
@@ -40,61 +40,67 @@
 				<div class="col-sm-12">
 					<p id="display-time"></p>
 				</div>
-				<div class="col-8 pe-4">
+
+				<!-- Input Screen -->
+				<div class="col-4 pe-4">
 					<input type="text" name="screen" id="screen" oninput="calculator.getInput()">
 				</div>
+
+				<!-- C, /, *, - -->
 				<div class="row mt-4">
-					<div class="col-2">
+					<div class="col-1">
 						<button class="btn btn-secondary mdas" onclick="calculator.cls()">C</button>
 					</div>
-					<div class="col-2">
+					<div class="col-1">
 						<button class="btn btn-warning mdas" onclick="calculator.setCalculatorOperation('/')">/</button>
 					</div>
-					<div class="col-2">
+					<div class="col-1">
 						<button class="btn btn-warning mdas" onclick="calculator.setCalculatorOperation('*')">*</button>
 					</div>
-					<div class="col-2">
+					<div class="col-1">
 						<button class="btn btn-warning mdas" onclick="calculator.setCalculatorOperation('-')">-</button>
 					</div>
 				</div>
+
+				<!-- 4 through 9 and + -->
 				<div class="row mt-2">
-					<div class="col-2">
+					<div class="col-1">
 						<div class="row row-cols-1">
 							<div class="col">
-								<button class="btn btn-primary mdas">7</button>
+								<button class="btn btn-primary mdas" onclick="calculator.numberInput('7')">7</button>
 							</div>
 						</div>
 						<div class="row row-cols-1 mt-2">
 							<div class="col">
-								<button class="btn btn-primary mdas">4</button>
+								<button class="btn btn-primary mdas" onclick="calculator.numberInput('4')">4</button>
 							</div>
 						</div>
 					</div>
-					<div class="col-2">
+					<div class="col-1">
 						<div class="row row-cols-1">
 							<div class="col">
-								<button class="btn btn-primary mdas">8</button>
+								<button class="btn btn-primary mdas" onclick="calculator.numberInput('8')">8</button>
 							</div>
 						</div>
 						<div class="row row-cols-1 mt-2">
 							<div class="col">
-								<button class="btn btn-primary mdas">5</button>
+								<button class="btn btn-primary mdas" onclick="calculator.numberInput('5')">5</button>
 							</div>
 						</div>
 					</div>
-					<div class="col-2">
+					<div class="col-1">
 						<div class="row row-cols-1">
 							<div class="col">
-								<button class="btn btn-primary mdas">9</button>
+								<button class="btn btn-primary mdas" onclick="calculator.numberInput('9')">9</button>
 							</div>
 						</div>
 						<div class="row row-cols-1 mt-2">
 							<div class="col">
-								<button class="btn btn-primary mdas">6</button>
+								<button class="btn btn-primary mdas" onclick="calculator.numberInput('6')">6</button>
 							</div>
 						</div>
 					</div>
-					<div class="col-2">
+					<div class="col-1">
 						<button class="btn btn-warning mdas" onclick="calculator.setCalculatorOperation('+')">
 							<br>+
 							<br>
@@ -102,36 +108,38 @@
 						</button>
 					</div>
 				</div>
+
+				<!-- 0 though 3, . and = -->
 				<div class="row mt-2">
-					<div class="col-4">
+					<div class="col-2">
 						<div class="row row-cols-2">
 							<div class="col">
-								<button class="btn btn-primary mdas">1</button>
+								<button class="btn btn-primary mdas" onclick="calculator.numberInput('1')">1</button>
 							</div>
 							<div class="col">
-								<button class="btn btn-primary mdas">2</button>
+								<button class="btn btn-primary mdas" onclick="calculator.numberInput('2')">2</button>
 							</div>
 						</div>
 						<div class="row mt-2">
 							<div class="col">
-								<button class="btn btn-primary mdas">0</button>
+								<button class="btn btn-primary mdas" onclick="calculator.numberInput('0')">0</button>
 							</div>
 						</div>
 					</div>
-					<div class="col-2">
+					<div class="col-1">
 						<div class="row">
 							<div class="col">
-								<button class="btn btn-primary mdas">3</button>
+								<button class="btn btn-primary mdas" onclick="calculator.numberInput('3')">3</button>
 							</div>
 						</div>
 						<div class="row mt-2">
 							<div class="col">
-								<button class="btn btn-primary mdas">.</button>
+								<button class="btn btn-primary mdas" onclick="calculator.numberInput('.')">.</button>
 							</div>
 						</div>
 					</div>
-					<div class="col-2">
-						<button class="btn btn-success mdas">
+					<div class="col-1">
+						<button class="btn btn-success mdas" onclick="calculator.displayResults()">
 							<br>=
 							<br>
 							<br>
