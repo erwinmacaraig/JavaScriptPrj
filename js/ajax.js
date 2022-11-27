@@ -72,3 +72,81 @@ function fetchMyDog(parentId) {
     req.send();
 
 }
+
+function fetchDogBreed() { 
+    let xhr = new XMLHttpRequest();
+    let breed = document.getElementById('the-breed').value;
+
+    breed = breed.toLowerCase();
+    const dogUri = `https://dog.ceo/api/breed/${breed}/images`;
+    xhr.open("GET", dogUri);
+    let results;
+    const parentContainerEl = document.getElementById('dog-breed-container-results');
+    while (parentContainerEl.firstChild) { 
+        parentContainerEl.removeChild(parentContainerEl.firstChild);
+    }
+    xhr.onreadystatechange = function () { 
+        if (xhr.readyState == 4 && xhr.status == 200) { 
+            results = JSON.parse(xhr.responseText);
+            let dogs = results['message'];
+
+            for (let x = 0; x < dogs.length; x++) {
+                let cardDiv = document.createElement("div");
+                cardDiv.setAttribute("class", "card");
+                // cardDiv.setAttribute("style", "width: 18rem;");
+
+                let actualImg = document.createElement("img");
+                actualImg.setAttribute("class", "card-img-top");
+                actualImg.setAttribute("src", dogs[x]);
+                
+                let cardBody = document.createElement("div");
+                cardBody.setAttribute('class', 'card-body');
+
+                let titleHeading = document.createElement("h5");
+                titleHeading.textContent = `Dog Number #${x+1}`;
+
+                let cardDesc = document.createElement("p");
+                cardDesc.setAttribute("class", "card-text");
+
+                cardDesc.textContent = `Some quick example text to build on the card title and make up the bulk of the card's content.`;
+
+                cardBody.appendChild(titleHeading);
+                cardBody.appendChild(cardDesc);
+
+                cardDiv.appendChild(actualImg);
+                cardDiv.appendChild(cardBody);
+                parentContainerEl.appendChild(cardDiv);
+
+            }
+
+            
+
+        }
+    }
+    xhr.send();
+
+}
+function getAllCountries() { 
+    const xhr = new XMLHttpRequest();
+    const url = "https://api.getfestivo.com/v2/countries/?api_key=ed06611c8309b2fbade085a8f5e4fe15";   
+    xhr.open("GET", url);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    let selectEl = document.getElementById("inputGroupSelect01");
+
+    xhr.onreadystatechange = function () { 
+        if (xhr.DONE && xhr.status == 200) { 
+            // console.log(JSON.parse(xhr.responseText));
+            let results = [];            
+            results = JSON.parse(xhr.responseText);            
+            for (let i = 0; i < results.length; i++) { 
+                let countryObj = results[i];               
+                let option = document.createElement("option");
+                option.setAttribute('value', countryObj['name']);
+                option.textContent = countryObj['name'];
+                selectEl.appendChild(option);
+                
+            }
+        }
+    }
+    xhr.send();
+}
