@@ -40,7 +40,15 @@ window.onload = function () {
     function renderItems() {
         let pEl = document.getElementById('todo-tasks-list');
         pEl.innerHTML = '';
-        let list = '';
+        let list = `
+        <li class="todo-item">
+            <label class="control--checkbox">                    
+                <strong>Modify the "Your To Do List" and Add an Edit Feature to
+                Modify the task name that are not yet marked as "Done" </strong>
+                <input data-id="0" type="checkbox" disabled>
+                    <div class="checked-icon"></div>
+            </label>            
+        </li>`;
         for (var i = 0; i < todos.length; i++) {
             var item = createItemTemplate(todos[i]);
             list += item;
@@ -77,7 +85,7 @@ window.onload = function () {
     }
 
     function createItemTemplate(todo) {
-        var item = '<li class="todo-item ' + (todo.done ? 'done' : '') + '">';
+        var item = '<li class="todo-item ' + (todo.done ? 'done' : '') + '">';        
         item += '<label class="control--checkbox">';
         item += todo.task;
         item += '<input data-id="' + todo.id + '" type="checkbox" ' + (todo.done ? 'checked' : '') + ' />';
