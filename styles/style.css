@@ -1,0 +1,133 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f3f6f9;
+}
+
+header {
+  width: 800px;
+  margin: 40px auto 20px auto;
+  padding: 20px;
+  text-align: center;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+header h1 {
+  color: #465a6e;
+}
+
+header input {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  outline: none;
+  border: 1px solid #e8eef1;
+  border-radius: 4px;
+  font-size: 20px;
+  color: #607d8b;
+}
+
+header input::placeholder{
+  color:#868e96;
+}
+
+.todos-box {
+  width: 760px;
+  margin: 20px auto;
+  background-color: #fff;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.todos-list {
+  color: #465a6e;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-item{
+  position: relative;
+  padding: 16px 12px;
+  list-style: none;
+  user-select: none;
+  border-bottom: 1px solid #e8eef1;
+}
+
+.todo-item:last-child {
+  border-bottom: 1px solid #e8eef1;
+}
+
+.todo-item.done {
+  background: #f9f9f9;
+  color: #bbb;
+  text-decoration-line: line-through;
+  text-decoration-color: #2aa1c0;
+}
+
+.todo-item label {
+  font-size: 14px;
+	position: relative;
+	margin: auto 0;
+	padding-left: 30px;
+  padding-top: 5px;
+	cursor: pointer;
+}
+
+.todo-item input {
+  display: none;
+}
+
+.checked-icon{
+	position: absolute;
+	top: 2px;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background-color: #e6e6e6;
+  transition: all .25s ease;
+}
+
+.checked-icon:after {
+	position: absolute;
+	display: none;
+	content: '';
+  top: 4px;
+  left: 8px;
+  width: 3px;
+  height: 8px;
+  transform: rotate(45deg);
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+}
+
+.todo-item input:checked ~ .checked-icon{
+  background-color: #2aa1c0;
+  transition: all .25s ease;
+}
+
+.todo-item input:checked ~ .checked-icon:after{
+  display: block;
+}
+
+.remove-todo-btn {
+  display: none;
+  position: absolute;
+  right: 12px;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+}
+
+.remove-todo-btn i{
+  cursor: pointer;
+  color: #465a6e;
+}
+
+.todo-item:hover .remove-todo-btn{
+  display: block;
+}
