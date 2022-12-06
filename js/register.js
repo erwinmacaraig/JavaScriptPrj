@@ -123,7 +123,7 @@ class Registrar {
 
         if (authUser) {
             sessionStorage.setItem('authUser', JSON.stringify(authUser));
-            window.location.href = '../products.html';
+            window.location.href = '/products.html';
         } else { 
             alert('Wrong email or password');
         }
