@@ -131,3 +131,24 @@ header input::placeholder{
 .todo-item:hover .remove-todo-btn{
   display: block;
 }
+.navbar-inverse {
+    border-radius: 0;
+}
+
+.thumbnail img {
+    width: 240px;
+    height: 200px;
+}
+
+.glyphicon-refresh-animation {
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        transform: scale(1) rotate(360deg);
+    }
+}
