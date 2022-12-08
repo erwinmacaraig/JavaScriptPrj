@@ -53,8 +53,8 @@ class Calculator {
     
     document.getElementById('screen').value = this.calMem[this.calMem.length - 1];
     this.result = this.calMem[this.calMem.length - 1];
-    this.calMem = [];
-    this.operations = [];  
+    this.calMem = [this.result];
+    this.operations = [this.operations[this.operations.length - 1]];  
     this.input = '';
   }
 
@@ -79,12 +79,13 @@ class Calculator {
     this.operations = [];  
     this.input = '';
     this.result = 0;
+    console.log(this.input);
   }
 
-  numberInput(num) {
-    this.input = this.input + num;
-    document.getElementById('screen').value = `${this.input}`;
-  }
+  // numberInput(num) {
+  //   this.input = this.input + num;
+  //   document.getElementById('screen').value = `${this.input}`;
+  // }
 
   keyPress(event) {
     console.log(event);
@@ -94,20 +95,8 @@ class Calculator {
       case 'c':
       case 'C':
       case 'Escape':
+      case 'Delete':
         this.cls();
-        break;
-
-      case '1':
-      case '2':  
-      case '3':
-      case '4':
-      case '5':
-      case '6':
-      case '7':
-      case '8':
-      case '9':
-      case '0':
-        this.numberInput(key);
         break;
       
       case 'Enter':
@@ -123,4 +112,5 @@ class Calculator {
         break;
     }
   }
+
 }
