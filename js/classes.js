@@ -53,8 +53,8 @@ class Calculator {
     
     document.getElementById('screen').value = this.calMem[this.calMem.length - 1];
     this.result = this.calMem[this.calMem.length - 1];
-    this.calMem = [this.result];
-    this.operations = [this.operations[this.operations.length - 1]];  
+    this.calMem = [];
+    this.operations = [];  
     this.input = '';
   }
 
@@ -67,10 +67,7 @@ class Calculator {
     this.operations.push(op);
     document.getElementById('screen').value = '';    
     document.getElementById('screen').focus();
-    console.log('went trought here');
     this.input = '';
-    console.log(this.input);
-    console.log('went also here');
   }
 
   cls() { 
@@ -82,10 +79,10 @@ class Calculator {
     console.log(this.input);
   }
 
-  // numberInput(num) {
-  //   this.input = this.input + num;
-  //   document.getElementById('screen').value = `${this.input}`;
-  // }
+  numberInput(num) {
+    this.input = this.input + num;
+    document.getElementById('screen').value = `${this.input}`;
+  }
 
   keyPress(event) {
     console.log(event);
