@@ -16,6 +16,7 @@ class Registrar {
             xhr.onreadystatechange = function () {
                 if (xhr.status == 200 && xhr.readyState == 4) {
                     document.getElementsByClassName('needs-validation')[0].reset();
+                    window.location.href = 'login.html';
                 }
             }
             xhr.send(JSON.stringify(user));
