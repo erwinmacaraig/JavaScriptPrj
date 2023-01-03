@@ -1,9 +1,11 @@
 document.querySelector("div.container").style = "display: none";
 
+document.querySelector("#footer").style = "display: none";
+
 setTimeout(function () { 
     document.querySelector("div.page-loading-status").style = "display: none";
-    
     document.querySelector("div.container").style = "display: block";
+    document.querySelector("#footer").style = "display: block";
 }, 2000);
 
 
@@ -46,7 +48,7 @@ function clockFormat() {
             amPm =`AM`;
         } else {
             h12 = h;
-            amPm `AM`;
+            amPm = `AM`;
         }
         // prepend 0
         if (m < 10) { 
